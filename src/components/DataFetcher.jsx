@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
 const DataFetcher = () => {
-  const [data, setData] = useState(null);        // Holds fetched data
-  const [loading, setLoading] = useState(true);  // Shows loading state
-  const [error, setError] = useState(null);      // Handles error state
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,9 +28,12 @@ const DataFetcher = () => {
   return (
     <div>
       {loading && <p>Loading data...</p>}
-      {error && <p>Error: {error}</p>}
+      {error && <p>An error occurred: {error}</p>}
       {data && (
-        <pre>{JSON.stringify(data, null, 2)}</pre>
+        <>
+          <h2>Data Fetched from API</h2>
+          <pre>{JSON.stringify(data, null, 2)}</pre>
+        </>
       )}
     </div>
   );
